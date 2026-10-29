@@ -1,5 +1,5 @@
-const CACHE = 'lerncampus-v17';
-const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './sterile-drape.webp', './material-ecg.webp', './material-bag.webp', './material-cuff.webp', './material-syringe.webp', './material-gauze.webp', './material-glove.webp', './material-cloth.webp'];
+const CACHE = 'lerncampus-v18';
+const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './airway-mouth.webp', './airway-bag.webp', './airway-laryngoscope.webp', './airway-tube.webp', './airway-syringe.webp', './airway-fix.webp', './sterile-drape.webp', './material-ecg.webp', './material-bag.webp', './material-cuff.webp', './material-syringe.webp', './material-gauze.webp', './material-glove.webp', './material-cloth.webp'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', event => {
