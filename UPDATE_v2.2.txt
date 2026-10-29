@@ -1,0 +1,10 @@
+LernCampus v2.2 – Änderungen
+- Intubation: 7 statt 10 Lernpunkte in Tab.
+- Medikamentenliste in Schritt 5 ohne Dosierungen, fett und untereinander.
+- Mobile Textüberläufe korrigiert.
+- YouTube-Einbettungen mit Designrahmen und Vollbild für Intubation und arterielles Monitoring.
+- Startseite: vorbereitete Karte für die vertonte Einführung. Die vertonte Videodatei ist noch NICHT erstellt und daher noch nicht abspielbar.
+
+Installation: ZIP entpacken und alle enthaltenen Webdateien ins Hauptverzeichnis des GitHub-Pages-Repositories hochladen. Danach ggf. PWA neu laden.
+
+Startseiten-Einführungsvideo als lokale MP4 mit synthetischer deutscher Männerstimme und leiser, eigens generierter Hintergrundmusik.
