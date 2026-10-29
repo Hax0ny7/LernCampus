@@ -1,0 +1,1 @@
+LernCampus v2.2.1: Einführungsvideo ohne Sprecherstimme, mit Texteinblendungen und dezenter neuer Instrumentalspur. Cache-Version aktualisiert. Alle Änderungen aus v2.2 enthalten.
