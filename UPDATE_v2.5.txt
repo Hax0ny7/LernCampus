@@ -1,0 +1,9 @@
+LernCampus v2.5 – lokale Pinboard-Vorschau
+- Name aus lokaler Anmeldung; neue Beiträge mit Datum/Uhrzeit
+- Neueste Beiträge zuerst
+- Eigene Beiträge bearbeiten und löschen (lokal anhand des Namens)
+- Rollen-Vorschau Mitarbeiter/Praxisanleiter/Administrator
+- Statusänderungen nur in Praxisanleiter-/Administrator-Testansicht
+- Fremde Beiträge nur in Administrator-Testansicht löschbar
+WICHTIG: Rollen und Zugangscode sind im Browser manipulierbar. Kein sicherer Schutz!
+Keine Firebase-Synchronisation, keine Patientendaten. Nicht als produktive Mitarbeiterfreigabe verwenden.
