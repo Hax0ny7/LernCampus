@@ -1,0 +1,1 @@
+LernCampus v2.7: MTS-Trainingsspiel mit 12 zufällig gemischten Fallbeispielen und je drei Entscheidungen (Diagramm, Diskriminator, Dringlichkeit). Didaktische Näherung, keine offiziellen MTS-Diskriminatorlisten. Fachliche Prüfung vor Einsatz in Schulungen erforderlich.
