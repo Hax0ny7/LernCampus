@@ -1,0 +1,1 @@
+LernCampus v2.9: Atemwegs-Simulation nur in Intubation plus drittes Minigame; erweiterte Krankheitsbilder mit Suchfunktion; Kardiologie und schematische grüne EKG-Animationen; Startseiten-EKG-Laufband; Wissensbibliothek mit Schemata und MTS. EKGs sind didaktische Simulationen und kein diagnostischer Ersatz.
