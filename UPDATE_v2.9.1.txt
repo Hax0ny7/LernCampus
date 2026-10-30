@@ -1,0 +1,1 @@
+LernCampus v2.9.1: STEMI-EKG-Simulation an Referenzbild angepasst (angehobener J-Punkt, konkaves ST-Segment, positive T-Welle). Gruene Animation im EKG-Bereich und Startseitenband. Alle anderen Funktionen unveraendert. Didaktische Kurve, nicht diagnostisch.
