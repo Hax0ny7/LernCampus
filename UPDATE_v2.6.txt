@@ -1,0 +1,3 @@
+LernCampus v2.6 – Mitgliederverwaltung (lokale Vorschau)
+Adminbereich: Mitglieder suchen, Rollen auswählen, Statistiken, Hauptadministrator geschützt, Demo-Rollen zurücksetzen.
+WICHTIG: Alle Mitglieder sind Beispieldaten. Keine echte Benutzerverwaltung oder Berechtigungssicherheit. Firebase folgt später.
