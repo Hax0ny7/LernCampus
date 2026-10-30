@@ -1,0 +1,1 @@
+v2.8: 20 gemischte Triage-Lernfälle; Diagrammauswahl und hierarchische Ja/Nein-Prüfung. Didaktische Simulation, nicht die originalen MTS-Diskriminatoren. Fachliche Freigabe erforderlich.

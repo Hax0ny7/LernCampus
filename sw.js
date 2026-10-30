@@ -1,4 +1,4 @@
-const CACHE = 'lerncampus-v26-members-preview-neuwerk';
+const CACHE = 'lerncampus-v28-mts-hierarchy-neuwerk';
 const ASSETS = ['./', './index.html', './', './', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './airway-anatomy.webp', './airway-bag.webp', './airway-laryngoscope.webp', './airway-tube.webp', './airway-syringe.webp', './airway-fix.webp', './sterile-drape.webp', './material-ecg.webp', './material-bag.webp', './material-cuff.webp', './material-syringe.webp', './material-gauze.webp', './material-glove.webp', './material-cloth.webp'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())); });
