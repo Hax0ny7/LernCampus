@@ -1,0 +1,1 @@
+LernCampus v3.2: Home-Refresh, neuer Startbanner mit 11 wechselnden Sprüchen ohne Statistik-Kacheln, kompakteres Prozesshandbuch mit Volltextsuche, EKG-Detektiv v0.2. Vor produktivem Einsatz medizinisch und funktional prüfen.
