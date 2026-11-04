@@ -1,5 +1,136 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EKG-Detektiv – LernCampus Prototyp</title><style>
 :root{font-family:system-ui,-apple-system,sans-serif;color:#eaf1f8;background:#0b1422}*{box-sizing:border-box}body{margin:0;padding:22px 12px}.wrap{max-width:940px;margin:auto}h1{margin:0 0 4px;font-size:1.7rem}p{line-height:1.55;color:#b9c9dc}.panel{background:#152236;border:1px solid #30435b;border-radius:16px;padding:18px;margin-top:18px}.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#a9c2dd;font-size:.9rem}.strip{background:#fff;border-radius:9px;overflow:hidden;margin:14px 0}.strip svg{width:100%;height:auto;display:block}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.options button,.action{font:inherit;cursor:pointer;border:1px solid #44617d;border-radius:10px;background:#1d3049;color:white;padding:13px;text-align:left}.options button:hover,.action:hover{background:#2b4563}.options button:disabled{cursor:default;opacity:.8}.options button.correct{background:#16543d;border-color:#40be8b}.options button.wrong{background:#632d39;border-color:#ef8d8d}.action{background:#296a9e;text-align:center;margin-top:14px}.answer{padding:14px;border-radius:10px;background:#20344d;margin-top:14px;line-height:1.55}.small{font-size:.85rem;color:#a9bdd1}.score{font-weight:700;color:#b4f4d5}@media(max-width:520px){.options{grid-template-columns:1fr}h1{font-size:1.4rem}.panel{padding:12px}}
+</style><style id="lc-v33-theme">
+/* LernCampus v3.3 – einheitliches Navy/Cyan Design */
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #d8efff;
+  background: #042435;
+  --lc-bg: #042435;
+  --lc-card: #0a2341;
+  --lc-card-deep: #06182f;
+  --lc-line: #4385a9;
+  --lc-text: #d8efff;
+  --lc-muted: #a8cce4;
+  --lc-cyan: #28d8f2;
+}
+html {min-height:100%; background:#042435}
+body {
+  min-height:100vh;
+  color:var(--lc-text);
+  font-weight:350;
+  background:
+    radial-gradient(ellipse 65% 32% at 83% 3%, rgba(53,161,167,.38), transparent 78%),
+    radial-gradient(ellipse 68% 38% at 12% 58%, rgba(0,112,135,.34), transparent 85%),
+    radial-gradient(ellipse 55% 30% at 93% 84%, rgba(28,116,159,.24), transparent 82%),
+    linear-gradient(145deg,#062b3b 0%,#063849 32%,#052e42 60%,#041c35 100%);
+  background-attachment:fixed;
+}
+header {
+  background:linear-gradient(100deg,rgba(5,40,61,.84),rgba(7,70,85,.24));
+  border-bottom:1px solid rgba(92,196,230,.25);
+}
+header h1 {font-weight:350;letter-spacing:-.035em}
+header .sub, .sub, .small, .foot {color:var(--lc-muted)}
+h1,h2,h3,h4 {color:#dcefff;font-weight:400;letter-spacing:-.025em}
+p {color:#c3deee}
+a {color:#76dcff}
+.month,.clinical-eyebrow {color:#70dfff;letter-spacing:.15em}
+.brandmark {background:linear-gradient(135deg,#24d6f0,#2587e4);color:#05233b}
+.tile,.panel,.infoBox,.sysbtn,.sim-shell,.video-card,.wavebox,.lch-cat,
+.clinical-hero,.clinical-bottom,.game-select-grid > *,
+[class*="process-card"],[class*="onboard-card"] {
+  color:var(--lc-text);
+  background:linear-gradient(155deg,rgba(17,65,98,.96) 0%,rgba(9,36,67,.98) 58%,rgba(5,22,48,.99) 100%);
+  border:1px solid rgba(109,195,240,.55);
+  border-radius:20px;
+  box-shadow:0 14px 24px rgba(0,10,32,.27),inset 0 1px rgba(193,245,255,.09);
+}
+.tile:not(.locked) {background:linear-gradient(155deg,#12486a,#0b2d4f 65%,#071b38);border:1px solid #5cbbe4}
+.tile:hover,.tile:focus,.tile:not(.locked):hover,.tile:not(.locked):focus {
+  background:linear-gradient(145deg,#195b80,#103d65);
+  border-color:#52d8ff;
+}
+.tile.locked {background:linear-gradient(145deg,#0b2037,#071628);border-color:#2c506c}
+.tile.locked:hover,.tile.locked:focus {background:linear-gradient(145deg,#0b2037,#071628);border-color:#2c506c}
+.clinical-hero {
+  position:relative;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 78% 18%,rgba(13,119,168,.32),transparent 48%),
+             linear-gradient(135deg,#174e70 0%,#0c2d50 55%,#071b3b 100%);
+  border:1px solid #78c9ef;
+  box-shadow:0 18px 32px #00132670;
+}
+.clinical-hero h2 {font-size:clamp(27px,5vw,42px);font-weight:350}
+.clinical-hero #lcWelcomeQuote {color:#c8e4f5;font-weight:350;font-style:italic}
+.btn,.qbtn,button:not(.tile):not(.lch-cat):not(.clinical-bottom button),
+input,select,textarea {
+  border-radius:13px;
+}
+.btn,button:not(.tile):not(.lch-cat):not(.clinical-bottom button) {
+  background:linear-gradient(135deg,#17496e,#0b3055);
+  border:1px solid #4b96c4;
+  color:#d8efff;
+}
+.btn.active,.btn:hover,.btn:focus-visible {
+  background:linear-gradient(110deg,#80f5ff,#28b6e6);
+  border-color:#7ef5ff;
+  color:#052641;
+}
+.clinical-hero .btn {
+  background:linear-gradient(100deg,#9df8ff,#35c5ec);
+  color:#05243c;
+  border:1px solid #a7f9ff;
+  border-radius:999px;
+  font-weight:600;
+  padding:12px 22px;
+  box-shadow:0 6px 18px #00273b55;
+}
+.clinical-hero .btn:hover {background:linear-gradient(100deg,#b9fbff,#54d8f7);color:#05243c}
+.lch-cat {background:linear-gradient(145deg,#123e61,#0a284a 70%,#061c39)}
+.lch-cat-top,.lch-cat-icon {color:#69cfff}
+.lch-cat small {color:#a7cde6}
+.clinical-bottom {
+  background:linear-gradient(125deg,rgba(13,56,86,.98),rgba(5,24,53,.99))!important;
+  border:1px solid #65add2!important;
+  border-radius:24px!important;
+  box-shadow:0 12px 35px #00142799!important;
+  backdrop-filter:blur(14px);
+}
+.clinical-bottom button {
+  background:transparent!important;
+  border:0!important;
+  color:#b8d7ef!important;
+  font-weight:400;
+}
+.clinical-bottom button.active {
+  background:linear-gradient(145deg,rgba(28,112,143,.62),rgba(14,67,106,.5))!important;
+  border-radius:20px!important;
+  color:#65f1ff!important;
+}
+.clinical-bottom button .nav-ico {color:#8fd5ff}
+.clinical-bottom button.active .nav-ico {color:#4befff}
+input,select,textarea {
+  background:#071e37;
+  border:1px solid #4c87a9;
+  color:#e1f3ff;
+}
+input::placeholder,textarea::placeholder {color:#8aaec7}
+.step {border-bottom-color:#365b78}
+.num,.tag {background:#155477;color:#8fefff}
+.step p,.infoBox p {color:#b8d5e8}
+.video-card,.infoBox,.sysbtn,.sim-shell {background:linear-gradient(145deg,#103858,#071d38)}
+:focus-visible {outline:2px solid #66eaff;outline-offset:3px}
+@media(max-width:600px) {
+  .wrap {padding-left:14px;padding-right:14px}
+  .tile,.panel {border-radius:17px}
+  .clinical-hero {border-radius:22px}
+  .clinical-bottom {border-radius:20px!important}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {scroll-behavior:auto!important;animation-duration:.01ms!important}
+}
 </style></head><body><main class="wrap"><h1>EKG-Detektiv</h1><p>Interaktiver LernCampus-Prototyp · Sechs stehende 6-Sekunden-Rhythmusstreifen, Ableitung II, 25 mm/s, 10 mm/mV.</p><div class="panel"><div class="meta"><span id="progress"></span><span id="score" class="score"></span></div><div class="strip" id="strip"></div><div class="small">Synthetisch erzeugte Lehrkurven – keine Original-Patienten-EKGs; fachliche Freigabe vor klinischer Schulungsnutzung erforderlich.</div><h2 style="font-size:1.12rem">Welcher Rhythmus ist dargestellt?</h2><div id="options" class="options"></div><div id="feedback" aria-live="polite"></div><button id="next" class="action" hidden>Nächster Streifen</button></div></main>
 <script>
 'use strict';
