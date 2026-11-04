@@ -283,7 +283,7 @@ function renderLibraryGroup(data){return data.map((d,i)=>`<details class="schema
 function renderLibrary(){document.getElementById('libraryCards').innerHTML=`<details class="schema-card"><summary><span><strong>Schemata</strong><small>cABCDE · SAMPLER · OPQRST · qSOFA · GCS & AVPU</small></span><span>⌄</span></summary><div class="schema-body">${renderLibraryGroup(libraryData.slice(0,5))}</div></details>${renderLibraryGroup(libraryData.slice(5))}`}
 function updateQsofa(){const n=[...document.querySelectorAll('.qs')].filter(x=>x.checked).length;document.getElementById('qsofaScore').textContent=n+' / 3 Punkte'+(n>=2?' · Erhöhtes Risiko':'')}
 function updateGcs(){const e=+document.getElementById('gcsE').value,v=+document.getElementById('gcsV').value,m=+document.getElementById('gcsM').value;document.getElementById('gcsScore').textContent=`GCS ${e+v+m} (E${e} V${v} M${m})`}
-function togglePresentation(){document.body.classList.toggle('present');document.getElementById('present').textContent=document.body.classList.contains('present')?'Smartphone-Modus':'Präsentationsmodus'}function syncClinicalNav(){const visible=['home','year','library','games','onboarding','pinboard','diseases','admin','detail'].find(id=>!document.getElementById(id)?.classList.contains('hidden'));document.querySelectorAll('[data-mainnav]').forEach(b=>{const key=b.dataset.mainnav;b.classList.toggle('active',key===visible||(key==='year'&&visible==='detail'))})}const clinicalObserver=new MutationObserver(syncClinicalNav);document.querySelectorAll('main section').forEach(el=>clinicalObserver.observe(el,{attributes:true,attributeFilter:['class']}));if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});history.replaceState({lcView:'home'},'',location.pathname+location.search);goHome(true);window.addEventListener('popstate',event=>{const state=event.state;if(state?.lcView==='detail'&&unlocked[state.topic]){openTopic(state.topic,true);if(state.tab&&state.tab!=='learn')showTab(state.tab,true)}else if(state?.lcView==='admin'){openAdmin(true)}else if(['year','pinboard','onboarding','library','diseases','ecg','games'].includes(state?.lcView)){openArea(state.lcView,true)}else{goHome(true)}});init();bindPinForm();bindGameZones();goHome(true);
+function togglePresentation(){document.body.classList.toggle('present');document.getElementById('present').textContent=document.body.classList.contains('present')?'Smartphone-Modus':'Präsentationsmodus'}function syncClinicalNav(){const visible=['home','year','library','games','onboarding','pinboard','diseases','admin','detail'].find(id=>!document.getElementById(id)?.classList.contains('hidden'));document.querySelectorAll('[data-mainnav]').forEach(b=>{const key=b.dataset.mainnav;b.classList.toggle('active',key===visible||(key==='year'&&visible==='detail'))})}const clinicalObserver=new MutationObserver(syncClinicalNav);document.querySelectorAll('main section').forEach(el=>clinicalObserver.observe(el,{attributes:true,attributeFilter:['class']}));if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});window.addEventListener('popstate',event=>{const state=event.state;if(state?.lcView==='detail'&&unlocked[state.topic]){openTopic(state.topic,true);if(state.tab&&state.tab!=='learn')showTab(state.tab,true)}else if(state?.lcView==='admin'){openAdmin(true)}else if(['year','pinboard','onboarding','library','diseases','ecg','games'].includes(state?.lcView)){openArea(state.lcView,true)}else{goHome(true)}});init();bindPinForm();bindGameZones();
 
 const lcEcgEntries=[
 {name:'STEMI',kind:'Akutes Koronarsyndrom',desc:'Schematische ST-Hebung in einer beispielhaften Ableitung. Diagnose erfordert 12-Kanal-Ableitungsbezug, Kriterien und klinischen Kontext.',pattern:'stemi'},
@@ -421,7 +421,7 @@ function lc30RenderSkills(){document.getElementById('lc30SkillsList').innerHTML=
 function lc30OpenSkillLink(i){const link=location.origin+location.pathname+'?skill='+i;navigator.clipboard?.writeText(link).then(()=>alert('Skill-Link kopiert')).catch(()=>prompt('Skill-Link:',link))}
 // Deep-link to a skill after normal app access; no access bypass.
 function lc30RouteSkill(){const params=new URLSearchParams(location.search);const i=Number(params.get('skill'));if(!params.has('skill')||!Number.isInteger(i)||i<0||i>=lc30Skills.length)return;const gate=document.getElementById('lcAccessGate');if(gate&&!gate.hidden)return;openArea('onboarding',true);lc30ShowOnboard('skills');const details=document.querySelectorAll('#lc30SkillsList details');if(details[i]){details[i].open=true;details[i].scrollIntoView({block:'center'})}}
-window.addEventListener('load',()=>setTimeout(lc30RouteSkill,50));
+// Deep links are opened only through explicit user navigation; no automatic redirect on refresh.
 </script><style id="lc-handbook-style">
 .lch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0}.lch-cat{background:#102a3d;border:1px solid #35576b;color:#edf9fc;border-radius:13px;padding:15px 12px;text-align:left;cursor:pointer;font:inherit;min-height:90px}.lch-cat strong{display:block;font-size:14px}.lch-cat small{display:block;color:#a9c7d1;margin-top:7px}.lch-cat:focus-visible,.lch-back:focus-visible{outline:2px solid #66e2d1}.lch-card{background:#10293b;border:1px solid #35566b;border-radius:13px;padding:16px;margin:12px 0}.lch-card h3{margin:0 0 12px;font-size:18px}.lch-card ol{padding-left:22px;margin:0}.lch-card li{margin:0 0 14px;line-height:1.55}.lch-card li:last-child{margin-bottom:0}.lch-muted{color:#b8d0d9;font-size:13px}.lch-note{background:#243344;border-left:4px solid #efc46d;padding:12px;border-radius:8px;margin:12px 0;line-height:1.5}.lch-back{margin:10px 0;padding:9px 13px;border:1px solid #527587;border-radius:9px;background:#143349;color:white;font:inherit;cursor:pointer}.lch-label{font-size:12px;color:#acd4db;letter-spacing:.03em}.lch-detail{border-top:1px solid #315165;padding-top:10px;margin-top:10px}.lch-detail summary{cursor:pointer;font-weight:700}.lch-detail p{margin-bottom:0}.lch-room{display:flex;gap:12px;align-items:baseline}.lch-room b{min-width:68px;color:#71e4d1}.lch-empty{color:#c4d4db;padding:14px}.lch-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.lch-tags span{font-size:12px;padding:5px 9px;border:1px solid #406379;border-radius:7px}@media(max-width:420px){.lch-grid{gap:8px}.lch-cat{padding:12px 9px}}
 </style><script>
@@ -474,17 +474,12 @@ lcRandomWelcome();
 .clinical-bottom button .nav-ico{font-size:25px!important;line-height:1.1!important}
 @media(max-width:380px){.clinical-bottom button .nav-ico{font-size:23px!important}}
 </style>
-<script id="lc-v321-startfix">
-(function(){
-  if('scrollRestoration' in history) history.scrollRestoration='manual';
-  function showStart(){
-    if(typeof goHome!=='function')return;
-    history.replaceState({lcView:'home'},'',location.pathname+location.search);
-    goHome(true);
-    window.scrollTo(0,0);
-    if(typeof syncClinicalNav==='function')syncClinicalNav();
-  }
-  // Browser refresh, back-forward cache restoration, and initial page load.
-  window.addEventListener('pageshow',function(){showStart();requestAnimationFrame(showStart);});
-})();
+<script id="lc-v322-startup">
+// One synchronous startup route. Refresh always starts at home.
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+const lcStartupUrl = new URL(location.href);
+lcStartupUrl.searchParams.delete('skill');
+history.replaceState({lcView:'home'}, '', lcStartupUrl.pathname + lcStartupUrl.search);
+goHome(true);
+syncClinicalNav();
 </script></body></html>
