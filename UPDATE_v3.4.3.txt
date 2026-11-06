@@ -1,0 +1,3 @@
+LernCampus v3.4.3 – Schockraumnavigator
+76 Schubladen, 3 Ablagen/Fächer, 4 Standorte. Materialsuche und Schrankübersicht.
+WICHTIG: Hausinterne Materialdaten. Nicht ohne Freigabe in öffentliches Repository hochladen.
