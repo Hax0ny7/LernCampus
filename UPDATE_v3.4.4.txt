@@ -1,0 +1,1 @@
+LernCampus v3.4.4: Grafische anklickbare Schrankübersicht, vertikale Schubladenliste, bestehende Materialsuche unverändert. Nur intern verwenden; kein öffentlicher GitHub-Upload ohne Freigabe.
